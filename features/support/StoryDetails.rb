@@ -177,10 +177,10 @@ class StoryDetails < BaseScreen
             return false
         end
 
-        hover(slider_button)
+        #hover(slider_button)
         click_on(slider_button)
         sleep(1)
-        hover(place_to_hover)
+        #hover(place_to_hover)
 
         return nil        
     end

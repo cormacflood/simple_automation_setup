@@ -4,7 +4,7 @@ require "rubygems"
 require "selenium-cucumber"
 
 #Environments - unable to pass in another value from the command line, so this is used for now
-TEST_HOST = "https://syfl-api-dev.storyful.com"
+TEST_HOST = "https://syfl-api-demo.storyful.com"
 
 #Logins
 USERNAME = (ENV['USERNAME'] || "cormac.flood@storyful.com")

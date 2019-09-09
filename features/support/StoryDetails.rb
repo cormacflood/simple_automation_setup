@@ -121,12 +121,12 @@ class StoryDetails < BaseScreen
 
     def select_story_items_toolbar(row)
         sleep(1)
-        toolbars = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
+        #toolbars = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
         p "p toolbars.size is: "
         p toolbars
         idx = row.to_i - 1
-        hover(toolbars)
-        sleep(3)
+        #hover(toolbars)
+        sleep(1)
         visible_toolbars = wait_to_find_element(:xpath, LOCATORS[:xpath][:visible_toolbar_expander])
         click_on(visible_toolbars)
     end
@@ -166,7 +166,7 @@ class StoryDetails < BaseScreen
     end
 
     def update_slider(slider,status)
-        place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
+        #place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
         case slider
             when 'LEAD IMAGE'
                 slider_button = wait_to_find_element(:xpath, LOCATORS[:xpath][:lead_image_slider])
@@ -186,7 +186,7 @@ class StoryDetails < BaseScreen
     end
 
     def update_dropdown(dropdown,value)
-        place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
+        #place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
         case dropdown
         when 'STORY TEMPLATE'
             selected_dropdown = wait_to_find_element(:xpath, LOCATORS[:xpath][:story_layout])
@@ -246,7 +246,7 @@ class StoryDetails < BaseScreen
     end
 
     def click_tab(tab_name)
-        place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
+        #place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
         case tab_name
         when 'Clearance'
             selected_tab = wait_to_find_element(:xpath, LOCATORS[:xpath][:clearance_tab])
@@ -275,7 +275,7 @@ class StoryDetails < BaseScreen
     end
 
     def enter_text(text_field,value)
-        place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
+        #place_to_hover = wait_to_find_element(:xpath, LOCATORS[:xpath][:place_to_hover])
         case text_field
         when 'Stated Source'
             field_to_update = wait_to_find_element(:xpath, LOCATORS[:xpath][:stated_source])

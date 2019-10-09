@@ -5,7 +5,7 @@ Feature: SYFL-API - Edit Story
 
 @all @edit_story_1
 Scenario: Edit a story
-Given I open story '204363'
+Given I open story '226259'
 #lead image
 And slider:LEAD IMAGE is set to ON
 And slider:LEAD IMAGE is set to OFF
@@ -50,6 +50,8 @@ Then the 'Editorial content' free text field contains 'Updating Editorial Conten
 
 @all @edit_story_1 @edit_story_2
 Scenario: Edit a story - META DATA
+#temp
+Given I open story '226259'
 And I select MetaData Channel:Licensed
 And I select MetaData Category:animals
 And I select MetaData Category:funny

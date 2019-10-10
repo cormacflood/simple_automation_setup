@@ -110,7 +110,9 @@ Then the CURRENT STATUS is NOT CHECKED
 
 @all @edit_story_1 @reorder_items_1
 Scenario: Reorder items by dragging
-Given I drag an item from position 6 to position 5
+Given slider:LEAD IMAGE is set to ON
+And slider:LEAD IMAGE is set to OFF
+And I drag an item from position 6 to position 5
 And I drag an item from position 5 to position 4
 And I drag an item from position 4 to position 3
 And I drag an item from position 3 to position 2

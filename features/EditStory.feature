@@ -5,7 +5,7 @@ Feature: SYFL-API - Edit Story
 
 @all @edit_story_1
 Scenario: Edit a story
-Given I open story '226259'
+Given I open story '227467'
 #lead image
 And slider:LEAD IMAGE is set to ON
 And slider:LEAD IMAGE is set to OFF

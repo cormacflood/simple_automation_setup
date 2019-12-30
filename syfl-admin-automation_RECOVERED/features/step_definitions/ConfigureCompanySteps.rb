@@ -1,5 +1,59 @@
 # frozen_string_literal: true
 
+# Off PAYG 'Licensed Bundle'
+Given(/^I have Allow Licensed Downloads = '(.*)'/) do |state|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_allow_licensed_downloads(state).nil?
+end
+
+Then(/^Allow Licensed Downloads is '(.*)'/) do |state|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if config_company.get_allow_licensed_downloads_state != state
+end
+
+# 1000
+Given(/^I have a bundle size = '(.*)'/) do |bundle_size|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_bundle_size(bundle_size).nil?
+end
+
+# 31 Nov 2019
+Given(/^Download Period Starts = '(.*)'/) do |start_date|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_download_start(start_date).nil?
+end
+
+# 3 Monthly (on calendar date)
+Given(/^Bundle resets = '(.*)'/) do |reset_date|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_bundle_reset(reset_date).nil?
+end
+
+# Access Expiration Date
+Given(/^I set Access Expiration Date = '(.*)'/) do |expiry|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_access_expiration(expiry).nil?
+end
+
+# Auto-renew
+Given(/^I set Auto renew = '(.*)'/) do |state|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_auto_renew(state).nil?
+    sleep(1)
+end
+
+# Trial
+Given(/^I set Trial = '(.*)'/) do |state|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_trial(state).nil?
+end
+
+# Licensed Only
+Given(/^I set Licensed Only = '(.*)'/) do |state|
+    config_company = ConfigureCompanyScreen.new($driver)
+    fail if !config_company.set_licensed_only(state).nil?
+end
+
 Given(/^I open the new company page/) do
     $driver.navigate.to "#{TEST_HOST}/companies/new"
     sleep(3)
@@ -46,8 +100,13 @@ Given(/^I configure the following rates values/) do |table|
 end
 
 Given(/^I click Save/) do
-    config_company = ConfigureCompanyScreen.new($driver)
-    fail if !config_company.click_save.nil?
+    dc = DataCreator.new($driver)
+    if dc.am_I_on_Production.nil?
+        config_company = ConfigureCompanyScreen.new($driver)
+        fail if !config_company.click_save.nil?
+    else
+        p "Unable to save to Production"
+    end
     #sleep(10)
 end
 
